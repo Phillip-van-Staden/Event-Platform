@@ -1,26 +1,502 @@
 @import "tailwindcss";
+/* @custom-variant dark (&:is(.dark *)); */
 
 :root {
+  --font-size: 16px;
   --background: #ffffff;
-  --foreground: #171717;
+  --foreground: oklch(0.145 0 0);
+  --card: #ffffff;
+  --card-foreground: oklch(0.145 0 0);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.145 0 0);
+  --primary: #030213;
+  --primary-foreground: oklch(1 0 0);
+  --secondary: oklch(0.95 0.0058 264.53);
+  --secondary-foreground: #030213;
+  --muted: #ececf0;
+  --muted-foreground: #717182;
+  --accent: #e9ebef;
+  --accent-foreground: #030213;
+  --destructive: #d4183d;
+  --destructive-foreground: #ffffff;
+  --border: rgba(0, 0, 0, 0.1);
+  --input: transparent;
+  --input-background: #f3f3f5;
+  --switch-background: #cbced4;
+  --font-weight-medium: 500;
+  --font-weight-normal: 400;
+  --ring: oklch(0.708 0 0);
+  --chart-1: oklch(0.646 0.222 41.116);
+  --chart-2: oklch(0.6 0.118 184.704);
+  --chart-3: oklch(0.398 0.07 227.392);
+  --chart-4: oklch(0.828 0.189 84.429);
+  --chart-5: oklch(0.769 0.188 70.08);
+  --radius: 0.625rem;
+  --sidebar: oklch(0.985 0 0);
+  --sidebar-foreground: oklch(0.145 0 0);
+  --sidebar-primary: #030213;
+  --sidebar-primary-foreground: oklch(0.985 0 0);
+  --sidebar-accent: oklch(0.97 0 0);
+  --sidebar-accent-foreground: oklch(0.205 0 0);
+  --sidebar-border: oklch(0.922 0 0);
+  --sidebar-ring: oklch(0.708 0 0);
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+.dark {
+  --background: oklch(0.145 0 0);
+  --foreground: oklch(0.985 0 0);
+  --card: oklch(0.145 0 0);
+  --card-foreground: oklch(0.985 0 0);
+  --popover: oklch(0.145 0 0);
+  --popover-foreground: oklch(0.985 0 0);
+  --primary: oklch(0.985 0 0);
+  --primary-foreground: oklch(0.205 0 0);
+  --secondary: oklch(0.269 0 0);
+  --secondary-foreground: oklch(0.985 0 0);
+  --muted: oklch(0.269 0 0);
+  --muted-foreground: oklch(0.708 0 0);
+  --accent: oklch(0.269 0 0);
+  --accent-foreground: oklch(0.985 0 0);
+  --destructive: oklch(0.396 0.141 25.723);
+  --destructive-foreground: oklch(0.637 0.237 25.331);
+  --border: oklch(0.269 0 0);
+  --input: oklch(0.269 0 0);
+  --ring: oklch(0.439 0 0);
+  --font-weight-medium: 500;
+  --font-weight-normal: 400;
+  --chart-1: oklch(0.488 0.243 264.376);
+  --chart-2: oklch(0.696 0.17 162.48);
+  --chart-3: oklch(0.769 0.188 70.08);
+  --chart-4: oklch(0.627 0.265 303.9);
+  --chart-5: oklch(0.645 0.246 16.439);
+  --sidebar: oklch(0.205 0 0);
+  --sidebar-foreground: oklch(0.985 0 0);
+  --sidebar-primary: oklch(0.488 0.243 264.376);
+  --sidebar-primary-foreground: oklch(0.985 0 0);
+  --sidebar-accent: oklch(0.269 0 0);
+  --sidebar-accent-foreground: oklch(0.985 0 0);
+  --sidebar-border: oklch(0.269 0 0);
+  --sidebar-ring: oklch(0.439 0 0);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+/* 
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
+} */
+
+/**
+ * Base typography. This is not applied to elements which have an ancestor with a Tailwind text class.
+ */
+@layer base {
+  :where(:not(:has([class*=" text-"]), :not(:has([class^="text-"])))) {
+    h1 {
+      font-size: var(--text-2xl);
+      font-weight: var(--font-weight-medium);
+      line-height: 1.5;
+    }
+
+    h2 {
+      font-size: var(--text-xl);
+      font-weight: var(--font-weight-medium);
+      line-height: 1.5;
+    }
+
+    h3 {
+      font-size: var(--text-lg);
+      font-weight: var(--font-weight-medium);
+      line-height: 1.5;
+    }
+
+    h4 {
+      font-size: var(--text-base);
+      font-weight: var(--font-weight-medium);
+      line-height: 1.5;
+    }
+
+    p {
+      font-size: var(--text-base);
+      font-weight: var(--font-weight-normal);
+      line-height: 1.5;
+    }
+
+    label {
+      font-size: var(--text-base);
+      font-weight: var(--font-weight-medium);
+      line-height: 1.5;
+    }
+
+    button {
+      font-size: var(--text-base);
+      font-weight: var(--font-weight-medium);
+      line-height: 1.5;
+    }
+
+    input {
+      font-size: var(--text-base);
+      font-weight: var(--font-weight-normal);
+      line-height: 1.5;
+    }
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+/* Regular CSS (Converted from Tailwind) */
+.wrapper {
+  max-width: 80rem; /* Equivalent to max-w-7xl */
+  margin-left: auto; /* Equivalent to lg:mx-auto (margin auto on left) */
+  margin-right: auto; /* Equivalent to lg:mx-auto (margin auto on right) */
+  padding: 1.25rem; /* Equivalent to p-5 */
+  padding-left: 2.5rem; /* Equivalent to md:px-10 */
+  padding-right: 2.5rem; /* Equivalent to md:px-10 */
+  width: 100%; /* Equivalent to w-full */
 }
+
+.flex-center {
+  display: flex;
+  justify-content: center; /* Equivalent to justify-center */
+  align-items: center; /* Equivalent to items-center */
+}
+
+.flex-between {
+  display: flex;
+  justify-content: space-between; /* Equivalent to justify-between */
+  align-items: center; /* Equivalent to items-center */
+}
+/* Typography styles */
+.h1-bold {
+  font-weight: 700; /* Equivalent to font-bold */
+  font-size: 40px;
+  line-height: 48px;
+}
+
+@media (min-width: 1024px) {
+  .h1-bold {
+    font-size: 48px;
+    line-height: 60px;
+  }
+}
+
+@media (min-width: 1280px) {
+  .h1-bold {
+    font-size: 58px;
+    line-height: 74px;
+  }
+}
+
+/* h2-bold */
+.h2-bold {
+  font-weight: 700;
+  font-size: 32px;
+  line-height: 40px;
+}
+
+@media (min-width: 1024px) {
+  .h2-bold {
+    font-size: 36px;
+    line-height: 44px;
+  }
+}
+
+@media (min-width: 1280px) {
+  .h2-bold {
+    font-size: 40px;
+    line-height: 48px;
+  }
+}
+
+/* h2-medium */
+.h2-medium {
+  font-weight: 500; /* Equivalent to font-medium */
+  font-size: 32px;
+  line-height: 40px;
+}
+
+@media (min-width: 1024px) {
+  .h2-medium {
+    font-size: 36px;
+    line-height: 44px;
+  }
+}
+
+@media (min-width: 1280px) {
+  .h2-medium {
+    font-size: 40px;
+    line-height: 48px;
+  }
+}
+
+/* h3-bold */
+.h3-bold {
+  font-weight: 700;
+  font-size: 28px;
+  line-height: 36px;
+}
+
+@media (min-width: 768px) {
+  .h3-bold {
+    font-size: 36px;
+    line-height: 44px;
+  }
+}
+
+/* h3-medium */
+.h3-medium {
+  font-weight: 500;
+  font-size: 28px;
+  line-height: 36px;
+}
+
+@media (min-width: 768px) {
+  .h3-medium {
+    font-size: 36px;
+    line-height: 44px;
+  }
+}
+
+/* h4-medium */
+.h4-medium {
+  font-weight: 500;
+  font-size: 32px;
+  line-height: 40px;
+}
+
+/* h5-bold */
+.h5-bold {
+  font-weight: 700;
+  font-size: 28px;
+  line-height: 36px;
+}
+
+/* p-bold-24 */
+.p-bold-24 {
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 36px;
+}
+
+/* p-medium-24 */
+.p-medium-24 {
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 36px;
+}
+
+/* p-regular-24 */
+.p-regular-24 {
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 36px;
+}
+
+/* p-bold-20 */
+.p-bold-20 {
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 30px;
+  letter-spacing: 0.02em; /* Equivalent to tracking-[2%] */
+}
+
+/* p-semibold-20 */
+.p-semibold-20 {
+  font-weight: 600; /* Equivalent to font-semibold */
+  font-size: 20px;
+  line-height: 30px;
+  letter-spacing: 0.02em;
+}
+
+/* p-medium-20 */
+.p-medium-20 {
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 30px;
+}
+
+/* p-regular-20 */
+.p-regular-20 {
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 30px;
+  letter-spacing: 0.02em;
+}
+
+/* p-semibold-18 */
+.p-semibold-18 {
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 28px;
+  letter-spacing: 0.02em;
+}
+
+/* p-medium-18 */
+.p-medium-18 {
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 28px;
+}
+
+/* p-regular-18 */
+.p-regular-18 {
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 28px;
+  letter-spacing: 0.02em;
+}
+
+/* p-bold-16 */
+.p-bold-16 {
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 24px;
+}
+
+/* p-medium-16 */
+.p-medium-16 {
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 24px;
+}
+
+/* p-regular-16 */
+.p-regular-16 {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+}
+
+/* p-semibold-14 */
+.p-semibold-14 {
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 20px;
+}
+
+/* p-medium-14 */
+.p-medium-14 {
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 20px;
+}
+
+/* p-regular-14 */
+.p-regular-14 {
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 20px;
+}
+
+/* p-medium-12 */
+.p-medium-12 {
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 20px;
+}
+
+/* SHADCN OVERRIDES */
+
+/* Select Field */
+.select-field {
+  width: 100%;
+  background-color: #f5f5f5; /* Equivalent to bg-grey-50 */
+  height: 54px;
+  color: #6b7280; /* Equivalent to placeholder:text-grey-500 */
+  border-radius: 9999px; /* Equivalent to rounded-full */
+  padding: 0.75rem 1.25rem; /* Equivalent to p-regular-16 px-5 py-3 */
+  border: none;
+}
+
+/* Input Field */
+.input-field {
+  background-color: #f5f5f5;
+  height: 54px;
+  color: #6b7280;
+  border-radius: 9999px;
+  padding: 0.75rem 1rem; /* Equivalent to p-regular-16 px-4 py-3 */
+  border: none;
+}
+
+/* Textarea */
+.textarea {
+  background-color: #f5f5f5;
+  flex: 1;
+  color: #6b7280;
+  padding: 0.75rem 1.25rem; /* Equivalent to p-regular-16 px-5 py-3 */
+  border: none;
+}
+
+/* Button */
+.button {
+  border-radius: 9999px;
+  height: 54px;
+  padding: 0.75rem 1.25rem; /* Equivalent to p-regular-16 */
+  background-color: #705cf7;
+  color: white;
+}
+
+/* Select Item */
+.select-item {
+  padding-top: 0.75rem;
+  padding-bottom: 0.75rem;
+  cursor: pointer;
+}
+
+.select-item:focus {
+  background-color: #e0e7ff; /* Equivalent to focus:bg-primary-50 */
+}
+
+/* Toggle Switch */
+.toggle-switch {
+  background-color: #d1d5db; /* Equivalent to bg-gray-300 */
+}
+/* ========================================== CLERK STYLES */
+.cl-logoImage {
+  height: 38px;
+}
+
+.cl-userButtonBox {
+  flex-direction: row-reverse;
+}
+
+.cl-userButtonOuterIdentifier {
+  font-size: 16px;
+}
+
+.cl-userButtonPopoverCard {
+  right: 4px;
+}
+
+.cl-formButtonPrimary:hover,
+.cl-formButtonPrimary:focus,
+.cl-formButtonPrimary:active {
+  background-color: #705cf7;
+}
+
+/* ========================================== REACT-DATEPICKER STYLES */
+/* .datePicker {
+  width: 100%;
+}
+
+.react-datepicker__input-container input {
+  background-color: transparent;
+  width: 100%;
+  outline: none;
+  margin-left: 16px;
+}
+
+.react-datepicker__day--selected {
+  background-color: #624cf5;
+  color: #ffffff;
+  border-radius: 4px;
+}
+
+.react-datepicker__time-list-item--selected {
+  background-color: #624cf5;
+}
+
+html {
+  font-size: var(--font-size);
+} */
