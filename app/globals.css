@@ -1,6 +1,9 @@
 @import "tailwindcss";
 /* @custom-variant dark (&:is(.dark *)); */
 
+@import "uploadthing/tw/v4";
+@source "../node_modules/@uploadthing/react/dist"; /** <-- depends on your project structure */
+
 :root {
   --font-size: 16px;
   --background: #ffffff;
@@ -135,6 +138,7 @@
       font-size: var(--text-base);
       font-weight: var(--font-weight-medium);
       line-height: 1.5;
+      background-color: #705cf7;
     }
 
     input {
@@ -145,6 +149,21 @@
   }
 }
 
+/* * {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-poppins);
+} */
+
+.filter-grey {
+  filter: brightness(0) saturate(100%) invert(47%) sepia(0%) saturate(217%)
+    hue-rotate(32deg) brightness(98%) contrast(92%);
+}
 /* Regular CSS (Converted from Tailwind) */
 .wrapper {
   max-width: 80rem; /* Equivalent to max-w-7xl */
@@ -476,7 +495,8 @@
 }
 
 /* ========================================== REACT-DATEPICKER STYLES */
-/* .datePicker {
+
+.datePicker {
   width: 100%;
 }
 
@@ -486,7 +506,9 @@
   outline: none;
   margin-left: 16px;
 }
-
+.react-datepicker-popper {
+  z-index: 50;
+}
 .react-datepicker__day--selected {
   background-color: #624cf5;
   color: #ffffff;
@@ -499,4 +521,4 @@
 
 html {
   font-size: var(--font-size);
-} */
+}

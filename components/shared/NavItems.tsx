@@ -15,7 +15,7 @@ function NavItems() {
             key={link.route}
             className={`${
               isActive ? "text-[#624CF5]" : "text-black"
-            }  flex-center text-[16px] font-medium leading-[24px] whitespace-nowrap`}
+            }  flex-center text-[16px] font-medium leading-[24px] whitespace-nowrap px-5`}
           >
             <Link href={link.route}>{link.label}</Link>
           </li>
