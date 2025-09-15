@@ -1,36 +1,78 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Evently - Event Platform
 
-## Getting Started
+Evently is an event platform built with the **Next.js**, **MERN stack**, and **TypeScript**. Users can discover, post, manage events, and book event tickets. The platform also includes an **Admin Panel** for managing events, users, and ticket sales.
 
-First, run the development server:
+## Key Features
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+- **User Features**:
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+  - Discover events by location, category, and date.
+  - Post new events, edit, and manage existing events.
+  - Book event tickets and view booking history.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- **Admin Panel**:
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+  - Manage events, users, and ticket sales.
+  - View event analytics and manage content submissions.
+  - Admin controls to approve or reject events submitted by users.
 
-## Learn More
+- **Authentication**:
 
-To learn more about Next.js, take a look at the following resources:
+  - **Clerk** for secure user authentication (sign-up, sign-in, passwordless login).
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- **Payment Integration**:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+  - **Stripe** for secure ticket payments and transaction handling.
 
-## Deploy on Vercel
+- **Image Uploads**:
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+  - **Uploadthing** for fast and efficient image uploads (event banners, logos, etc.).
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- **UI Components**:
+  - Built with **ShadCN** components for responsive and accessible design.
+
+## Tech Stack
+
+- **Frontend**:
+
+  - React.js with **Next.js** 
+  - TypeScript
+  - ShadCN UI components
+  - Tailwind CSS for styling
+  - React Router for routing
+
+- **Backend**:
+
+  - Node.js with Express.js for API routes
+  - MongoDB (using Mongoose) for database management
+
+- **Authentication**:
+
+  - **Clerk** for user authentication and sessions
+
+- **Payment**:
+
+  - **Stripe** for payment processing and ticket sales
+
+- **Image Upload**:
+
+  - **Uploadthing** for media management and image uploads
+
+- **Deployment**:
+  - Vercel for hosting
+
+## To-Do List
+
+- [x] **Create Event** - Users can create events and manage event details (Completed)
+- [x] **Clerk Authentication** - Implement sign-up, sign-in, and passwordless login (Completed)
+- [ ] **Event Details** - Completing the event details page for users to edit, view, and manage event specifics (In Progress)
+- [ ] **Event Discovery** - Build the feature to discover events by location, category, and date.
+- [ ] **Ticket Booking** - Implement ticket booking and booking history for users.
+- [ ] **Admin Panel** - Develop an admin panel to manage events, users, and ticket sales.
+- [ ] **Admin Controls** - Implement admin controls to approve/reject user-submitted events.
+- [ ] **Event Analytics** - Add functionality for viewing event analytics (attendees, revenue, etc.).
+- [ ] **Stripe Payment Integration** - Integrate Stripe to handle ticket purchases and payments.
+- [x] **Image Upload** - Implement image upload functionality using Uploadthing for event banners/logos.
+- [ ] **Responsive Design** - Ensure all UI components are responsive across devices (mobile/tablet/desktop).
+- [ ] **Testing** - Write tests for key components, authentication, and payment processing.
+- [ ] **Deployment** - Finalize deployment on Vercel.
