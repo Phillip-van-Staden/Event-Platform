@@ -31,17 +31,30 @@ Evently is an event platform built with the **Next.js**, **MERN stack**, and **T
 - **UI Components**:
   - Built with **ShadCN** components for responsive and accessible design.
 
-## Learn More
+## To-Do List
 
-To learn more about Next.js, take a look at the following resources:
+- [x] **Create Event** - Users can create events and manage event details (Completed)
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- [x] **Clerk Authentication** - Implement sign-up, sign-in, and passwordless login (Completed)
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- [x] **Event Details** - Completing the event details page for users to edit, view, and manage event specifics (completed)
 
-## Deploy on Vercel
+- [ ] **Event Discovery** - Build the feature to discover events by location, category, and date(In progress).
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- [ ] **Ticket Booking** - Implement ticket booking and booking history for users.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- [ ] **Admin Panel** - Develop an admin panel to manage events, users, and ticket sales.
+
+- [ ] **Admin Controls** - Implement admin controls to approve/reject user-submitted events.
+
+- [ ] **Event Analytics** - Add functionality for viewing event analytics (attendees, revenue, etc.).
+
+- [ ] **Stripe Payment Integration** - Integrate Stripe to handle ticket purchases and payments.
+
+- [x] **Image Upload** - Implement image upload functionality using Uploadthing for event banners/logos.
+
+- [ ] **Responsive Design** - Ensure all UI components are responsive across devices (mobile/tablet/desktop).
+
+- [ ] **Testing** - Write tests for key components, authentication, and payment processing.
+
+- [ ] **Deployment** - Finalize deployment on Vercel.
