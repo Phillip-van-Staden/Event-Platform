@@ -10,11 +10,12 @@ import React from "react";
 
 const EventDetails = async ({ params, searchParams }: SearchParamProps) => {
   const { id } = await params;
+  const { page } = await searchParams;
   const event = await getEventById(id);
   const relatedEvents = await getRelatedEventsByCategory({
     categoryId: event.category._id,
     eventId: event._id,
-    page: searchParams.page as string,
+    page: page as string,
   });
   return (
     <>

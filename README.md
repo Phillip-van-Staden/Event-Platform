@@ -45,9 +45,9 @@ Evently is an event platform built with the **Next.js**, **MERN stack**, and **T
 
 - [x] **Related Events** - Build the feature to see related events(completed).
 
-- [ ] **Profile** - Build the feature for user to update profile(In progress).
+- [x] **Profile** - Build the feature for user to update profile(completed).
 
-- [ ] **Ticket Booking** - Implement ticket booking and booking history for users.
+- [ ] **Ticket Booking** - Implement ticket booking and booking history for users(In progress).
 
 - [ ] **Admin Panel** - Develop an admin panel to manage events, users, and ticket sales.
 
