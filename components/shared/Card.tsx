@@ -50,7 +50,7 @@ const Card = async ({ event, hasOrderLink, hidePrice }: CardProps) => {
         <p className="p-medium-16 p-medium-18 text-gray-500">
           {formatDateTime(event.startDateTime).dateTime}
         </p>
-        <Link href={`/events/${event.id}`}>
+        <Link href={`/events/${event._id}`}>
           {" "}
           <p className="p-medium-16 md:p-medium-20 line-clamp-2 flex-1 text-black">
             {event.title}
@@ -62,7 +62,7 @@ const Card = async ({ event, hasOrderLink, hidePrice }: CardProps) => {
             {event.organizer.firstName} {event.organizer.lastName}
           </p>
           {hasOrderLink && (
-            <Link href={`/orders?eventId=${event.id}`} className="flex gap-2">
+            <Link href={`/orders?eventId=${event._id}`} className="flex gap-2">
               <p className="text-[#705cf7]">Order Details</p>
               <Image
                 src={"/assets/icons/arrow.svg"}
