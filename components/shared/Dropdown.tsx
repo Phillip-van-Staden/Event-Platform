@@ -49,7 +49,7 @@ const Dropdown = ({ value, onChangeHandler }: DropDownProps) => {
       <SelectTrigger className="select-field">
         <SelectValue placeholder="Category" />
       </SelectTrigger>
-      <SelectContent>
+      <SelectContent className="bg-white">
         {categories.length > 0 &&
           categories.map((category) => (
             <SelectItem

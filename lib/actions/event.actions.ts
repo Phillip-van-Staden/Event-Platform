@@ -73,6 +73,7 @@ export const getAllEvents = async ({
 }: GetAllEventsParams) => {
   try {
     await connectToDatabase();
+
     const titleCondition = query
       ? { title: { $regex: query, $options: "i" } }
       : {};
@@ -89,10 +90,12 @@ export const getAllEvents = async ({
     const skipAmount = (Number(page) - 1) * limit;
     const eventsQuery = Event.find(conditions)
       .sort({ createdAt: "desc" })
-      .skip(0)
+      .skip(skipAmount)
       .limit(limit);
+
     const events = await populateEvent(eventsQuery);
     const eventsCount = await Event.countDocuments(conditions);
+
     return {
       data: JSON.parse(JSON.stringify(events)),
       totalPages: Math.ceil(eventsCount / limit),
