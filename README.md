@@ -14,28 +14,44 @@ Evently is a powerful, user-friendly platform designed to streamline the entire 
 - **Shadcn**
 - **uploadthing**
 
-## Key Features
+# Key Features
 
-- **User Features**:
+## Clerk Authentication
 
-  - Discover events by location, category, and date.
-  - Post new events, edit, delete, and manage existing events.
-  - Book event tickets and view booking history.
+- **Secure Login**: Provides secure authentication for event organizers (clerk) to manage events.
+- **Role-Based Access**: Only authorized users can create, edit, delete, or view events.
 
-- **Authentication**:
+## Event Management
 
-  - **Clerk** for secure user authentication (sign-up, sign-in, passwordless login).
+- **Create, Edit, Delete, and View Events**: Easily manage your events with an intuitive interface to create new events, edit details, delete outdated ones, or simply view your listings.
+- **Rich Event Details**: Add essential event information like date, time, location, description, and images to enhance the event page.
 
-- **Payment Integration**:
+## Image Upload with UploadThing
 
-  - **Stripe** for secure ticket payments and transaction handling.
+- **Seamless Image Uploads**: Use UploadThing for easy and fast image uploads for your events. Upload high-quality event images to give your listings a professional look.
 
-- **Image Uploads**:
+## Advanced Event Search & Filtering
 
-  - **Uploadthing** for fast and efficient image uploads (event banners, logos, etc.).
+- **Search by Event Name**: Quickly find events by entering keywords or specific event names.
+- **Filter by Category**: Filter events by category (e.g., music, sports, conferences, etc.) to find events tailored to your interests.
 
-- **UI Components**:
-  - Built with **ShadCN** components for responsive and accessible design.
+## Related Events
+
+- **Discover Similar Events**: While viewing an event, the platform will suggest related events from the same category, making it easy to find similar experiences.
+
+## Secure Payments with Stripe
+
+- **Stripe Integration**: Easily purchase event tickets using Stripe’s secure payment gateway.
+- **Multiple Payment Methods**: Accept a wide range of payment methods, including credit and debit cards, ensuring a smooth transaction process.
+
+## Order History & Event Organization
+
+- **Order History**: View all past purchases, including tickets for events you've attended or are planning to attend.
+- **Manage Organized Events**: Event organizers can access a list of all events they've created and manage them with ease.
+
+## Event Analytics for Organizers
+
+- **Detailed Event Analytics**: Get valuable insights on your organized events, such as ticket sales, attendee demographics, and engagement data, to help you optimize your future events.
 
 ## To-Do List
 
