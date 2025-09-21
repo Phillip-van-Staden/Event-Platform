@@ -1,20 +1,26 @@
 # Evently - Event Platform
 
-Evently is an event platform built with the **Next.js**, **MERN stack**, and **TypeScript**. Users can discover, post, manage events, and book event tickets. The platform also includes an **Admin Panel** for managing events, users, and ticket sales.
+Evently is a powerful, user-friendly platform designed to streamline the entire event management process. Whether you're an organizer or attendee, Evently provides a seamless experience for creating, managing, and exploring events with ease. From event creation to secure transactions, Evently offers comprehensive features that simplify the complexities of event planning and management.
+
+## Tech Stack
+
+- **Node.js**
+- **Next.js**
+- **TypeScript**
+- **TailwindCSS**
+- **Stripe**
+- **Clerk**
+- **React Hook Form**
+- **Shadcn**
+- **uploadthing**
 
 ## Key Features
 
 - **User Features**:
 
   - Discover events by location, category, and date.
-  - Post new events, edit, and manage existing events.
+  - Post new events, edit, delete, and manage existing events.
   - Book event tickets and view booking history.
-
-- **Admin Panel**:
-
-  - Manage events, users, and ticket sales.
-  - View event analytics and manage content submissions.
-  - Admin controls to approve or reject events submitted by users.
 
 - **Authentication**:
 
@@ -47,19 +53,15 @@ Evently is an event platform built with the **Next.js**, **MERN stack**, and **T
 
 - [x] **Profile** - Build the feature for user to update profile(completed).
 
-- [ ] **Ticket Booking** - Implement ticket booking and booking history for users(In progress).
+- [x] **Ticket Booking** - Implement ticket booking and booking history for users(completed).
 
-- [ ] **Admin Panel** - Develop an admin panel to manage events, users, and ticket sales.
+- [x] **Stripe Payment Integration** - Integrate Stripe to handle ticket purchases and payments(completed).
 
-- [ ] **Admin Controls** - Implement admin controls to approve/reject user-submitted events.
+- [ ] **Event Analytics** - Add functionality for viewing event analytics (attendees, revenue, etc.)(In progress).
 
-- [ ] **Event Analytics** - Add functionality for viewing event analytics (attendees, revenue, etc.).
+- [x] **Image Upload** - Implement image upload functionality using Uploadthing for event banners/logos(completed).
 
-- [ ] **Stripe Payment Integration** - Integrate Stripe to handle ticket purchases and payments.
-
-- [x] **Image Upload** - Implement image upload functionality using Uploadthing for event banners/logos.
-
-- [ ] **Responsive Design** - Ensure all UI components are responsive across devices (mobile/tablet/desktop).
+- [x] **Responsive Design** - Ensure all UI components are responsive across devices (mobile/tablet/desktop)(completed).
 
 - [ ] **Testing** - Write tests for key components, authentication, and payment processing.
 

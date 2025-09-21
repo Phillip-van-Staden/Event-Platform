@@ -275,10 +275,10 @@ const EventForm = ({ userId, type, event, eventId }: EventFormProps) => {
                 <FormControl>
                   <div className="flex-center h-[54px] w-full overflow-hidden  px-4 py-2 input-field">
                     <Image
-                      src={"/assets/icons/dollar.svg"}
+                      src={"/assets/icons/rand.svg"}
                       alt="dollar"
-                      width={24}
-                      height={24}
+                      width={60}
+                      height={60}
                       className="filter-grey"
                     />
                     <Input
