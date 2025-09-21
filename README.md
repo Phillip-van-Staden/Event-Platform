@@ -5,6 +5,7 @@ Evently is a powerful, user-friendly platform designed to streamline the entire 
 ## Tech Stack
 
 - **Node.js**
+- **MongoDB**
 - **Next.js**
 - **TypeScript**
 - **TailwindCSS**
