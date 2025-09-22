@@ -10,14 +10,17 @@ import Image from "next/image";
 import React from "react";
 
 const EventDetails = async ({ params, searchParams }: SearchParamProps) => {
+  // ❌ remove await
   const { id } = await params;
-  const { page } = await searchParams;
+  const { page } = await searchParams; // ✅ fix here
+
   const event = await getEventById(id);
   const relatedEvents = await getRelatedEventsByCategory({
     categoryId: event.category._id,
     eventId: event._id,
     page: page as string,
   });
+
   return (
     <>
       <section className="flex justify-center bg-gray-50 bg-contain">
@@ -59,7 +62,7 @@ const EventDetails = async ({ params, searchParams }: SearchParamProps) => {
                   alt="calendar"
                   width={32}
                   height={32}
-                ></Image>
+                />
                 <div className="p-medium-16 lg:p-regular-20 flex flex-wrap items-center">
                   <p>
                     {formatDateTime(event.startDateTime).dateOnly},{" "}
@@ -103,7 +106,7 @@ const EventDetails = async ({ params, searchParams }: SearchParamProps) => {
           emptyStateSubtext="Come back later"
           collectionType="All_Events"
           limit={3}
-          page={searchParams.page as string}
+          page={page as string}
           totalPages={relatedEvents?.totalPages}
         />
       </section>

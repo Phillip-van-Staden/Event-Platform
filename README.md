@@ -74,12 +74,12 @@ Evently is a powerful, user-friendly platform designed to streamline the entire 
 
 - [x] **Stripe Payment Integration** - Integrate Stripe to handle ticket purchases and payments(completed).
 
-- [ ] **Event Analytics** - Add functionality for viewing event analytics (attendees, revenue, etc.)(In progress).
+- [x] **Event Analytics** - Add functionality for viewing event analytics (attendees, revenue, etc.)(completed).
 
 - [x] **Image Upload** - Implement image upload functionality using Uploadthing for event banners/logos(completed).
 
 - [x] **Responsive Design** - Ensure all UI components are responsive across devices (mobile/tablet/desktop)(completed).
 
-- [ ] **Testing** - Write tests for key components, authentication, and payment processing.
+- [ ] **Testing** - Write tests for key components, authentication, and payment processing(In progress).
 
 - [ ] **Deployment** - Finalize deployment on Vercel.
