@@ -16,13 +16,13 @@ const UpdateEvent = async ({ params }: UpdateEventProps) => {
   const event = await getEventById(id);
 
   return (
-    <>
-      <section className="bg-gray-50 bg-cover bg-center py-5 md:py-10">
-        <h3 className="wrapper h3-bold text-center sm:text-left">
+    <div className=" bg-white">
+      <section className="bg-gradient-to-b from-gray-900 via-gray-800 to-gray-900 bg-cover bg-center py-5 md:py-10">
+        <h3 className="wrapper h3-bold text-center sm:text-left text-white ">
           Update Event
         </h3>
       </section>
-      <div className="wrapper my-8">
+      <div className="wrapper my-8 ">
         <EventForm
           type="Update"
           event={event}
@@ -30,7 +30,7 @@ const UpdateEvent = async ({ params }: UpdateEventProps) => {
           userId={userId}
         />
       </div>
-    </>
+    </div>
   );
 };
 

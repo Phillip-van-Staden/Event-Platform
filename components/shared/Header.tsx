@@ -38,7 +38,7 @@ const Header = () => {
           <SignedOut>
             <Button
               asChild
-              className="text-white bg-indigo-600 rounded-full cursor-pointer"
+              className="text-white button rounded-full cursor-pointer"
               size={"lg"}
             >
               <Link href={"/sign-in"}>Login</Link>

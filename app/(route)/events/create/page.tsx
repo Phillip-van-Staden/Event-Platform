@@ -8,8 +8,8 @@ const CreateEvent = async () => {
 
   return (
     <>
-      <section className="bg-gray-50 bg-cover bg-center py-5 md:py-10">
-        <h3 className="wrapper h3-bold text-center sm:text-left">
+      <section className="bg-gradient-to-b from-gray-900 via-gray-800 to-gray-900 bg-cover bg-center py-5 md:py-10">
+        <h3 className="wrapper h3-bold text-center sm:text-left text-white">
           Create Event
         </h3>
       </section>
