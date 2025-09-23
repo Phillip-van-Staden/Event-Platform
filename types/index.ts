@@ -110,6 +110,7 @@ export type CheckoutOrderParams = {
   price: string;
   isFree: boolean;
   buyerId: string;
+  quantity: number;
 };
 
 export type CreateOrderParams = {
@@ -118,6 +119,7 @@ export type CreateOrderParams = {
   buyerId: string;
   totalAmount: string;
   createdAt: Date;
+  quantity: number;
 };
 
 export type GetOrdersByEventParams = {

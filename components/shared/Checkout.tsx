@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { loadStripe } from "@stripe/stripe-js";
 
 import { IEvent } from "@/lib/database/models/event.model";
@@ -8,6 +8,7 @@ import { checkoutOrder } from "@/lib/actions/order.actions";
 loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY!);
 
 const Checkout = ({ event, userId }: { event: IEvent; userId: string }) => {
+  const [quantity, setQuantity] = useState<number>(1);
   useEffect(() => {
     // Check to see if this is a redirect back from Checkout
     const query = new URLSearchParams(window.location.search);
@@ -31,15 +32,29 @@ const Checkout = ({ event, userId }: { event: IEvent; userId: string }) => {
       price: event.price,
       isFree: event.isFree,
       buyerId: userId,
+      quantity,
     };
 
     await checkoutOrder(order);
   };
 
   return (
-    <form onSubmit={onCheckout}>
+    <form onSubmit={onCheckout} className="flex items-center gap-3">
+      <div className="flex items-center gap-2">
+        <label htmlFor="quantity" className="p-medium-16">
+          Qty
+        </label>
+        <input
+          id="quantity"
+          type="number"
+          min={1}
+          value={quantity}
+          onChange={(e) => setQuantity(Math.max(1, Number(e.target.value)))}
+          className="w-20 rounded-md border px-3 py-2"
+        />
+      </div>
       <Button type="submit" role="link" size="lg" className="button sm:w-fit">
-        {event.isFree ? "Get Ticket" : "Buy Ticket"}
+        {event.isFree ? "Get Tickets" : "Buy Tickets"}
       </Button>
     </form>
   );

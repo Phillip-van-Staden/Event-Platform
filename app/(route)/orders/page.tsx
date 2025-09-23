@@ -20,8 +20,7 @@ const Orders = async ({ searchParams }: SearchParamProps) => {
   }, 0);
 
   const totalTicketsSold = orders.reduce((total: number, order: IOrderItem) => {
-    // Make sure your IOrderItem includes quantity
-    return total + 1; // (order.quantity || 0);
+    return total + (order.quantity || 1);
   }, 0);
 
   return (
@@ -29,7 +28,7 @@ const Orders = async ({ searchParams }: SearchParamProps) => {
       {/* SECTION 1: HEADER */}
       <section className="bg-gradient-to-b from-gray-900 via-gray-800 to-gray-900 bg-cover bg-center py-5 md:py-10">
         <div className="wrapper flex flex-col gap-2 text-center sm:text-left">
-          <p className="font-semibold text-green-400">EVENT SALES DASHBOARD</p>
+          <p className="font-semibold text-[#705cf7]">EVENT SALES DASHBOARD</p>
           <h3 className="h3-bold text-white">
             Orders for: <span className="text-gray-300">{event?.title}</span>
           </h3>
@@ -77,7 +76,7 @@ const Orders = async ({ searchParams }: SearchParamProps) => {
               <th className="p-4">Event Title</th>
               <th className="p-4">Buyer</th>
               <th className="p-4">Created Date</th>
-              {/* <th className="p-4 text-center">Quantity</th> */}
+              <th className="p-4 text-center">Quantity</th>
               <th className="p-4 text-right">Amount</th>
             </tr>
           </thead>
@@ -106,7 +105,9 @@ const Orders = async ({ searchParams }: SearchParamProps) => {
                       <td className="min-w-[100px] p-4">
                         {formatDateTime(row.createdAt).dateOnly}
                       </td>
-                      {/* <td className="min-w-[100px] p-4 text-center font-bold">{row.quantity || 'N/A'}</td> */}
+                      <td className="min-w-[100px] p-4 text-center font-bold">
+                        {row.quantity || 1}
+                      </td>
                       <td className="min-w-[100px] p-4 text-right font-semibold text-green-600">
                         {formatPrice(row.totalAmount)}
                       </td>

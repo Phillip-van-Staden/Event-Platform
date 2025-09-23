@@ -19,6 +19,7 @@ export const checkoutOrder = async (order: CheckoutOrderParams) => {
   const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!);
 
   const price = order.isFree ? 0 : Number(order.price) * 100;
+  const quantity = Math.max(1, Number(order.quantity || 1));
 
   try {
     const session = await stripe.checkout.sessions.create({
@@ -31,15 +32,16 @@ export const checkoutOrder = async (order: CheckoutOrderParams) => {
               name: order.eventTitle,
             },
           },
-          quantity: 1,
+          quantity,
         },
       ],
       metadata: {
         eventId: order.eventId,
         buyerId: order.buyerId,
+        quantity: String(quantity),
       },
       mode: "payment",
-      success_url: `${process.env.NEXT_PUBLIC_SERVER_URL}/`,
+      success_url: `${process.env.NEXT_PUBLIC_SERVER_URL}/`, //profile
       cancel_url: `${process.env.NEXT_PUBLIC_SERVER_URL}/`,
     });
 
@@ -54,9 +56,12 @@ export const createOrder = async (order: CreateOrderParams) => {
     await connectToDatabase();
 
     const newOrder = await Order.create({
-      ...order,
+      stripeId: order.stripeId,
+      totalAmount: order.totalAmount,
+      quantity: order.quantity, // ✅ ensure it's saved
       event: order.eventId,
       buyer: order.buyerId,
+      createdAt: order.createdAt ?? new Date(),
     });
 
     return JSON.parse(JSON.stringify(newOrder));
@@ -103,6 +108,7 @@ export async function getOrdersByEvent({
         $project: {
           _id: 1,
           totalAmount: 1,
+          quantity: 1,
           createdAt: 1,
           eventTitle: "$event.title",
           eventId: "$event._id",
