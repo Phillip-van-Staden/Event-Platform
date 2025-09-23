@@ -80,6 +80,6 @@ Evently is a powerful, user-friendly platform designed to streamline the entire 
 
 - [x] **Responsive Design** - Ensure all UI components are responsive across devices (mobile/tablet/desktop)(completed).
 
-- [ ] **Testing** - Write tests for key components, authentication, and payment processing(In progress).
+- [x] **Testing** - Write tests for key components, authentication, and payment processing(completed).
 
-- [ ] **Deployment** - Finalize deployment on Vercel.
+- [x] **Deployment** - Finalize deployment on Vercel(completed).
