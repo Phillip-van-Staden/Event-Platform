@@ -15,21 +15,29 @@ const Search = ({
   const searchParams = useSearchParams();
   useEffect(() => {
     const delayDebounceFn = setTimeout(() => {
-      let newUrl = "";
-      if (query) {
-        newUrl = formUrlQuery({
-          params: searchParams.toString(),
-          key: "query",
-          value: query,
-        });
-      } else {
-        newUrl = removeKeysFromQuery({
-          params: searchParams.toString(),
-          keysToRemove: ["query"],
-        });
+      // Get the current query from the URL search parameters
+      const currentUrlQuery = searchParams.get("query") || "";
+
+      // Only update the URL if the user has typed a new query
+      if (query !== currentUrlQuery) {
+        const newSearchParams = new URLSearchParams(searchParams.toString());
+
+        if (query) {
+          newSearchParams.set("query", query);
+        } else {
+          newSearchParams.delete("query");
+        }
+
+        // This is a new search, so we must reset to page 1
+        newSearchParams.delete("page");
+
+        const newUrl = `${
+          window.location.pathname
+        }?${newSearchParams.toString()}`;
+        router.push(newUrl, { scroll: false });
       }
-      router.push(newUrl, { scroll: false });
     }, 300);
+
     return () => clearTimeout(delayDebounceFn);
   }, [query, searchParams, router]);
   return (

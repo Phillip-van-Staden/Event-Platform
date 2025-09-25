@@ -23,21 +23,19 @@ const CategoryFilter = () => {
     getCategories();
   }, []);
   const onSelectCategory = (category: string) => {
-    let newUrl = "";
+    // Create a mutable copy of the search params
+    const newSearchParams = new URLSearchParams(searchParams.toString());
+
+    // Remove the page parameter when changing category
+    newSearchParams.delete("page");
 
     if (category && category !== "All") {
-      newUrl = formUrlQuery({
-        params: searchParams.toString(),
-        key: "category",
-        value: category,
-      });
+      newSearchParams.set("category", category);
     } else {
-      newUrl = removeKeysFromQuery({
-        params: searchParams.toString(),
-        keysToRemove: ["category"],
-      });
+      newSearchParams.delete("category");
     }
 
+    const newUrl = `${window.location.pathname}?${newSearchParams.toString()}`;
     router.push(newUrl, { scroll: false });
   };
   return (
